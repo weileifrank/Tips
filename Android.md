@@ -34,4 +34,14 @@
   $ ./gradlew -p app clean build
   ```
 
+- 把命令集成到基本中,以app module为例,创建一个run.sh脚本,代码如下,然后在gitbash下执行 `./run.sh`
+
+  ```
+  #!/bin/sh
+  ./gradlew -p app clean
+  #./gradlew -p app uninstallDebug
+  adb uninstall bupin.com.tmpdemo
+  ./gradlew -p app installDebug
+  adb shell am start -n bupin.com.tmpdemo/bupin.com.tmpdemo.MainActivity
+  ```
 
