@@ -74,4 +74,8 @@
   gradlew app:uninstallAll  //卸载手机上所有 app 的包
   ```
 
+- 参考链接
+
+  - https://www.cnblogs.com/zhaoyanjun/p/7603640.html
+  - https://www.cnblogs.com/zhaoyanjun/    这位博主的博客可以一看
 
