@@ -37,10 +37,21 @@
   ```
   node -v
   npm -v
+  
   ```
 
+- 常⻅错误：
 
-# win10配置web3环境
+  - json parse faild }....@sol
+
+  - 解决办法:
+
+    ```
+    npm cache clean --force
+    ```
+
+
+# win10配置web3环境(PowerShell执行)
 
 > 若安装web3报错, 注意,部分windows电脑可能要安装的工具
 

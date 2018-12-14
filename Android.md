@@ -79,3 +79,100 @@
   - https://www.cnblogs.com/zhaoyanjun/p/7603640.html
   - https://www.cnblogs.com/zhaoyanjun/    这位博主的博客可以一看
 
+# ubuntu配置android开发环境
+
+- 参考网址`https://qianngchn.github.io/wiki/8.html`
+
+- 安装Launchpad PPA Repositories
+
+  Launchpad PPA Repositories是很有用的非ubuntu官方的第三方个人资源库，可以很方便地安装第三方软件。1,2,3,10,14,18,22,23,28,34
+  但是在运行add-apt-repository命令时，有时会提示命令不存在，这个时候直接apt-get add-apt-repository是不可以的！
+
+  ```
+  sudo apt-get install software-properties-common
+  ```
+
+- 配置jdk,然后`java -version`验证一下
+
+  ```
+  sudo add-apt-repository ppa:webupd8team/java
+  sudo apt-get update
+  sudo apt-get install oracle-java8-installer
+  sudo apt-get install oracle-java8-set-default
+  ```
+
+- ### 安装 `Android SDK`
+
+  下载地址：<http://developer.android.com/sdk/installing/studio.html>
+
+  `android sdk` 工具包的一些命令行工具是基于`32`位系统的，在`64`为平台运行`32`程序必须安装 `i386` 的一些依赖库，方法如下：
+
+  ```
+  sudo dpkg --add-architecture i386
+  sudo apt-get update
+  sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1
+  ```
+
+  安装完成`32`位的依赖库后，我们使用`wget` 去官方下载最新的`linux`下`android SDK`包。
+
+  ```
+  cd ~
+  wget http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
+  tar xvzf android-sdk_r24.4.1-linux.tgz
+  ```
+
+  编辑 `.profile` 或者 `.bash_profile` 把下面的目录增加到 `path`的搜索路径中，确保`android SDK`的一些命令工具可以直接在终端使用，比如 `adb` 命令。
+
+  ```
+  ANDROID_HOME=$HOME/android-sdk-linux
+  PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+  ```
+
+  使环境变量生效
+
+  ```
+  source ~/.profile
+  ```
+
+  环境变量生效后，你可以使用`android`命令 列出`sdk`相关的列表，以便我们选择和自己项目匹配的`SDK`版本。(刚才只是安装了最基础的`SDK`，要完全满足你的开发环境需要还得从下面的列表中选择你需要的`SDK`和工具更新下载)
+
+  ```
+  android list sdk --all
+  ```
+
+  输出如下所示：
+
+  ```
+  1- Android SDK Tools, revision 24.4.1
+  2- Android SDK Platform-tools, revision 21
+  3- Android SDK Build-tools, revision 21.1.2
+  4- Android SDK Build-tools, revision 21.1.1
+  5- Android SDK Build-tools, revision 21.1
+  6- Android SDK Build-tools, revision 21.0.2
+  7- Android SDK Build-tools, revision 21.0.1
+  8- Android SDK Build-tools, revision 21
+  9- Android SDK Build-tools, revision 20
+  10- Android SDK Build-tools, revision 19.1
+  11- Android SDK Build-tools, revision 19.0.3
+  12- Android SDK Build-tools, revision 19.0.2
+  13- Android SDK Build-tools, revision 19.0.1
+  14- Android SDK Build-tools, revision 19
+  15- Android SDK Build-tools, revision 18.1.1
+  16- Android SDK Build-tools, revision 18.1
+  17- Android SDK Build-tools, revision 18.0.1
+  18- Android SDK Build-tools, revision 17
+  19- Documentation for Android SDK, API 21, revision 1
+  20- SDK Platform Android 5.0.1, API 21, revision 2
+  21- SDK Platform Android 4.4W.2, API 20, revision 2
+  22- SDK Platform Android 4.4.2, API 19, revision 4
+  23- SDK Platform Android 4.3.1, API 18, revision 3
+  24- SDK Platform Android 4.2.2, API 17, revision 3
+  ....
+  ```
+
+  这里包括不同的`Android API` 版本和不同的构建工具，选择你想要安装项目的序号，这里我想安装 `build tools 19.1` ,`build tools 21` 及 `android 4.2.2`以上的`SDK`所以选择序号 `1,2,3,20,21,22,23`
+
+  ```
+  android update sdk -u -a -t  1,2,3,10,20,21,22,23
+  ```
+
