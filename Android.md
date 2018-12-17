@@ -176,3 +176,134 @@
   android update sdk -u -a -t  1,2,3,10,20,21,22,23
   ```
 
+# ubuntu配置android环境2
+
+- 参考链接
+
+  ```
+  https://www.jianshu.com/p/35b109ed9481
+  https://blog.csdn.net/xiangwanpeng/article/details/54561374
+  https://www.jianshu.com/p/7f8ea155a0c8
+  ```
+
+- 配置jdk
+
+  - 在root目录下新建一个android文件夹,解压下载后的jdk压缩包,然后把java文件包移到/usr/下并命名为java
+
+    ```
+    tar -zxvf jdk-8u191-linux-x64.tar.gz
+    mv jdk1.8.0_191/ /usr/java/
+    ```
+
+  ​	
+
+  - 现在配置系统环境变量，现在我们在全局配置文件/etc/profile下配置，即为所有用户配置Java环境，使用vi命令编辑/etc/profile文件
+
+    ```
+    sudo vi /etc/profile
+    ```
+
+  - 在文件底部加上四条配置信息：
+
+    ```
+    export JAVA_HOME=/usr/java/
+    export JRE_HOME=${JAVA_HOME}/jre
+    export CLASSPATH=.:%{JAVA_HOME}/lib:%{JRE_HOME}/lib
+    export PATH=${JAVA_HOME}/bin:$PATH
+    ```
+
+  - 其中JAVA_HOME指定为你的JDK安装目录，另外，linux中是以冒号分隔，不同于windows下使用分号进行分隔。 编辑好后保存退出，执行命令：
+
+    ```
+    source /etc/profile
+    ```
+
+  - 补充一下：source命令，也称为“点命令”，也就是一个点符号（.）。它通常用于重新执行刚修改的初始化文件，使之立即生效，而不必注销并重新登录。同时，可以把一些命令做成一个文件，让它自动顺序执行，它可以把这个文件的内容当成shell来执行。 
+
+  - 现在可以执行javac命令和java -version命令进行测试： 
+
+    ```
+    root@iZuf6ggrfujyixxwpqrglbZ:/etc# java -version
+    java version "1.8.0_191"
+    Java(TM) SE Runtime Environment (build 1.8.0_191-b12)
+    Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)
+    ```
+
+
+- 配置android sdk
+
+  - 参考链接
+
+    ```
+    https://qianngchn.github.io/wiki/8.html
+    https://www.jianshu.com/p/94c34759de68
+    http://www.androiddocs.com/sdk/#top
+    ```
+
+  - 下载解压
+
+    ```
+    wget http://dl.google.com/android/android-sdk_r24.4.1-linux.tgz
+    tar -zxvf android-sdk_r24.4.1-linux.tgz
+    mv android-sdk-linux/ sdk/
+    ```
+
+  - 配置环境变量 打开了/etc/profile
+
+    ```
+    ANDROID_HOME=/root/android/sdk
+    PATH="$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools"
+    ```
+
+  - 使环境变量生效
+
+    ```
+    source /etc/profile
+    ```
+
+  - 更新sdk
+
+    ```
+    android update sdk --no-ui
+    # 这里只是更新现有的以及下载最新的sdk，如果再加一个参数-a, 就可以把所有的版本都下载。
+    ```
+
+- 配置ndk
+
+  - 参考链接
+
+    ```
+    https://blog.csdn.net/coder_pig/article/details/79134625
+    ```
+
+  - 下载ndk并解压
+
+    ```
+    unzip android-ndk-r14b-linux-x86_64.zip
+    mv android-ndk-r14b/ ndk/
+    ```
+
+  - 配置ndk环境变量
+
+    ```
+    
+    export ANDROID_NDK=/root/android/ndk
+    export PATH=$ANDROID_NDK:$PATH
+    ```
+
+- 踩坑记录
+
+  - you need the ndkr10e or later
+
+    ```
+    build on Linux x86_64
+    ANDROID_NDK=/home/czl/Android/android-ndk-r16b
+    IJK_NDK_REL=16.1.4479499
+    You need the NDKr10e or later
+    ```
+
+    解决办法:
+
+    - 下载最低版本ndk https://link.jianshu.com/?t=https%3A%2F%2Fdeveloper.android.google.cn%2Fndk%2Fdownloads%2Frevision_history.html%3Fhl%3Dzh-cn
+    - 下载版本号14的[android-ndk-r14b-linux-x86_64.zip](https://link.jianshu.com/?t=https%3A%2F%2Fdl.google.com%2Fandroid%2Frepository%2Fandroid-ndk-r14b-linux-x86_64.zip)
+    - 重新设置NDK路径
