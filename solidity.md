@@ -87,3 +87,79 @@
 # 
 
 # webstorm 开发智能合约需要安装Intellij-Solidity代码提示的插件
+
+
+
+
+
+# truffle 框架使用
+
+- 安装
+
+  ```
+  npm install -g truffle@4.1.12
+  ```
+
+- 在win10上,在ganache图形界面客户端打开的情况下,在gitbash执行如下命令
+
+  ```
+  w1138@DESKTOP-4ETLG7Q MINGW64 /d/WebstormProjects
+  $ mkdir truffleInit
+  
+  w1138@DESKTOP-4ETLG7Q MINGW64 /d/WebstormProjects
+  $ ls
+  lottery/  TestDemo/  TransferDemo/  truffleInit/
+  
+  w1138@DESKTOP-4ETLG7Q MINGW64 /d/WebstormProjects
+  $ cd truffleInit/
+  
+  w1138@DESKTOP-4ETLG7Q MINGW64 /d/WebstormProjects/truffleInit
+  $ ls
+  
+  w1138@DESKTOP-4ETLG7Q MINGW64 /d/WebstormProjects/truffleInit
+  $ truffle init
+  
+  - Preparing to download
+  √ Preparing to download
+  - Downloading
+  × Downloading
+  Error: Error: Error: Error making request to https://raw.githubusercontent.com/truffle-box/bare-box/master/truffle-box.json. Got error: connect ETIMEDOUT 151.101.72.133:443. Please check the format of the requested resource.
+      at Object.unbox (C:\Users\w1138\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\truffle-box\box.js:65:1)
+      at process._tickCallback (internal/process/next_tick.js:68:7)
+  Truffle v5.0.0 (core: 5.0.0)
+  Node v10.13.0
+  
+  ```
+
+- 关闭了ganache图形客户端后,再次执行命令居然ok了
+
+  ```
+  w1138@DESKTOP-4ETLG7Q MINGW64 /d/WebstormProjects/truffleInit
+  $truffle init
+  
+  - Preparing to download
+  √ Preparing to download
+  - Downloading
+  √ Downloading
+  - Cleaning up temporary files
+  √ Cleaning up temporary files
+  - Setting up box
+  √ Setting up box
+  
+  Unbox successful. Sweet!
+  
+  Commands:
+  
+    Compile:        truffle compile
+    Migrate:        truffle migrate
+    Test contracts: truffle test
+  
+  ```
+
+- 有时候执行如下命令可能会报错,关闭webstorm再重新打开,再次执行又好了
+
+  ```
+  truffle migrate --network ganacheNet
+  ```
+
+
