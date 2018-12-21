@@ -162,4 +162,30 @@
   truffle migrate --network ganacheNet
   ```
 
+- 执行`truffle test'报错如下:
 
+  ```
+  D:\WebstormProjects\truffleinit>truffle test
+  Could not connect to your Ethereum client. Please check that your Ethereum client:
+      - is running
+      - is accepting RPC connections (i.e., "--rpc" option is used in geth)
+      - is accessible over the network
+      - is properly configured in your Truffle configuration file (truffle.js)
+  
+  ```
+
+  原因在于`truffle-config.js`中配置的development如下:
+
+  ```
+  module.exports = {
+      networks: {
+          development: {
+              host: "127.0.0.1",     // Localhost (default: none)
+              port: 8545,            // Standard Ethereum port (default: none)
+              network_id: "*",       // Any network (default: none)
+          },
+      },
+   }
+  ```
+
+  默认情况下执行`truffle test`默认会找到development配置为9545的端口,现在我们配置了8545,覆盖了9545,所以只需把development配置注释就好了
