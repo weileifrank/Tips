@@ -32,6 +32,9 @@
 
   ```
   $ ./gradlew -p app clean build
+  
+  或者执行:
+  $ ./gradlew app:clean build
   ```
 
 - 把命令集成到基本中,以app module为例,创建一个run.sh脚本,代码如下,然后在gitbash下执行 `./run.sh`
@@ -76,8 +79,11 @@
 
 - 参考链接
 
+  - https://blog.csdn.net/zhaoyanjun6/article/details/77678577
+
   - https://www.cnblogs.com/zhaoyanjun/p/7603640.html
-  - https://www.cnblogs.com/zhaoyanjun/    这位博主的博客可以一看
+  - https://blog.csdn.net/zhaoyanjun6/article/list/1     这位博主的博客可以一看
+  - https://www.cnblogs.com/zhaoyanjun/   
 
 # ubuntu配置android开发环境
 
