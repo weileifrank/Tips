@@ -271,7 +271,7 @@
 
 
     ![](images/5.png)
-
+    
     > 1.Local中已经退出了develop模式,而Local2中执行了`npm run start`,会报错
     >
     > 2.报错由于本地http://127.0.0.1:9545服务关闭了
@@ -320,3 +320,69 @@
       - 重新刷新一下react页面会出现如下结果,表示成功
 
   ​	![](images/6.png)
+
+
+
+
+
+
+
+
+
+# GETH安装(以ubuntu为例)
+
+- 参考文档
+
+  ```
+  http://blog.fens.me/bitcoin-install-geth/
+  
+  https://github.com/ethereum/go-ethereum/wiki/Installation-Instructions-for-Ubuntu
+  ```
+
+- ubuntu配置go环境
+
+- 安装geth客户端
+
+  ```
+  git clone https://github.com/ethereum/go-ethereum
+  
+  sudo apt-get install -y build-essential
+  
+  cd go-ethereum
+  make geth
+  
+  
+  ```
+
+- 上述的结果会出现如下
+
+  ```
+  Done building.
+  Run "/root/eth/go-ethereum/build/bin/geth" to launch geth.
+  
+  
+  ```
+
+- 把`/root/eth/go-ethereum/build/bin/`添加到环境变量
+
+  ```
+  root@iZuf6ggrfujyixxwpqrglbZ:~/eth/go-ethereum# export PATH=$PATH:/root/eth/go-ethereum/build/bin
+  
+  ```
+
+- 检查是否安装好
+
+  ```
+  root@iZuf6ggrfujyixxwpqrglbZ:~/eth/go-ethereum# geth version
+  WARN [12-24|10:34:31.376] Sanitizing cache to Go's GC limits       provided=1024 updated=666
+  Geth
+  Version: 1.9.0-unstable
+  Git Commit: 9e9fc87e70accf2b81be8772ab2ab0c914e95666
+  Architecture: amd64
+  Protocol Versions: [63 62]
+  Network Id: 1
+  Go Version: go1.11.4
+  Operating System: linux
+  GOPATH=/root/workspace/go
+  GOROOT=/usr/local/go
+  ```
