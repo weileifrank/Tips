@@ -314,3 +314,25 @@
     - 下载最低版本ndk https://link.jianshu.com/?t=https%3A%2F%2Fdeveloper.android.google.cn%2Fndk%2Fdownloads%2Frevision_history.html%3Fhl%3Dzh-cn
     - 下载版本号14的[android-ndk-r14b-linux-x86_64.zip](https://link.jianshu.com/?t=https%3A%2F%2Fdl.google.com%2Fandroid%2Frepository%2Fandroid-ndk-r14b-linux-x86_64.zip)
     - 重新设置NDK路径
+
+# adb技巧
+
+- 常用的adb指令
+
+  ```
+  //向sdcard推拉当前目录下的mainapp.go文件
+  adb push mainapp.go /sdcard/
+  
+  //从sdcard目录下拉取文件mainapp.go到当前目录下
+  adb pull /sdcard/mainapp.go
+  
+  //启动应用
+  adb shell am start -n 包名/全类名  
+  
+  //卸载应用
+  adb uninstall 包名  
+  
+  //获取屏幕分辨率
+  adb shell wm size  
+  
+  ```
