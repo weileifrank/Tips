@@ -2,6 +2,8 @@
 
 ```
 https://www.kancloud.cn/kancloud/the-way-to-go/72529
+
+https://chai2010.gitbooks.io/advanced-go-programming-book/content/
 ```
 
 # goland中json处理
