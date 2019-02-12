@@ -1,3 +1,15 @@
+# 开发工具
+
+```
+vs2017秘钥:
+https://blog.csdn.net/mrobama/article/details/80493146
+
+qt安装如下:
+https://blog.csdn.net/xiongtiancheng/article/details/80036605
+```
+
+
+
 # sizeof关键字
 
 - sizeof不是函数，所以不需要包含任何头文件，它的功能是计算一个数据类型的大小，单位为字节
