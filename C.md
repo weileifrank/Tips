@@ -19,3 +19,31 @@
   	return 0;
   }
   ```
+
+
+
+# ffmpeg学习
+
+- 参考资料
+
+  ```java
+  
+  https://juejin.im/post/59b7d2ff5188257e671b71be
+  
+  http://blog.xigulu.com/2016/08/25/FFMPEG-command/
+  
+  https://github.com/tonydeng/fmj/blob/master/ffmpeg.md
+  
+  https://einverne.github.io/post/2015/12/ffmpeg-first.html
+  
+  https://blog.csdn.net/liangjiubujiu/article/details/80568065
+  
+  https://www.jianshu.com/p/aac3e2a209c3
+  
+  https://blog.csdn.net/xuyankuanrong/article/details/77527381
+  
+  
+  ```
+
+  
+
