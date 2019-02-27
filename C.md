@@ -3,10 +3,28 @@
 ```
 vs2017秘钥:
 https://blog.csdn.net/mrobama/article/details/80493146
+vs快捷键:
+https://www.cnblogs.com/luoguixin/p/6684485.html
 
 qt安装如下:
 https://blog.csdn.net/xiongtiancheng/article/details/80036605
 ```
+
+# Linux易忘指令
+
+- 拷贝本地 token.txt 到远程服务器的 home 目录下，注意 ~ 代表 home 目录,然后提示输入登录密码即可
+
+  ```
+  scp token.txt root@47.100.3.249:~
+  ```
+
+- 远程服务器传输文件到本地很简单，就是把 scp 命令的两个参数对调一下,然后提示输入登录密码即可
+
+  ```
+  scp root@47.100.3.249:~/token.txt token.txt
+  ```
+
+  
 
 
 
