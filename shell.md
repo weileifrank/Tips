@@ -32,4 +32,14 @@
   find . -name "*.c" | xargs grep -n "main"
   ```
 
+- scp
+
+  ```
+  #本地文件传输到远程home目录下,~带包home目录,然后提示输入密码即可
+  scp a.txt root@47.100.3.249:~
+  
+  #把远程文件拷贝到本地,就是把上面的参数对调一下即可
+  scp root@47.100.3.249:~/a.txt a.txt
+  ```
+
   
