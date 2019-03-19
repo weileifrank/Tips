@@ -335,4 +335,7 @@
   //获取屏幕分辨率
   adb shell wm size  
   
+  //对某个应用做monkey测试
+  adb shell monkey -p com.bupin.webversion 500
+  
   ```
