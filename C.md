@@ -26,29 +26,107 @@ https://blog.csdn.net/xiongtiancheng/article/details/80036605
 
   
 
+# Linux静态库制作和使用
 
+- 静态库命名规则
 
-# sizeof关键字
+  - lib+库名字+.a
+  - libmycalc.a
 
-- sizeof不是函数，所以不需要包含任何头文件，它的功能是计算一个数据类型的大小，单位为字节
+- 制作步骤
 
-- sizeof的返回值为size_t
+  - 将.c文件生成.o
 
-- size_t类型在32位操作系统下是unsigned int，是一个无符号的整数
+    ```
+    //-I指定头文件目录
+    gcc add.c minus.c multi.c divide.c -I../include -c
+    
+    或者:
+    gcc *.c -I../include -c
+    
+    ```
+
+  - 将.o打包
+
+    ```
+    //ar rcs 静态库的名字 原材料
+    gcc rcs libmycalc.a add.o minus.o multi.o divide.o 
+    或者:
+    ar rcs libmycalc.a *.o
+    ```
+
+- 库的使用
 
   ```
-  #include <stdio.h>
-  int main()
-  {
-  	int a;
-  	int b = sizeof(a);
-  	printf("b=%d\n", b);
-  	size_t c = sizeof(a);
-  	printf("c=%u\n", c);
-  	system("pause");
-  	return 0;
-  }
+  gcc main.c lib/libmycalc.a -I./include -o myapp
+  
+  或者 
+  //-L指定库所在的文件目录路径 -l指定库的名字,注意去掉lib和后面的.a -I指定头文件目录
+  gcc main.c -L./lib -lmycalc -I./include -o myapp
   ```
+
+- 实验流程如下图:
+
+  ![image](images/7.png)
+
+
+
+# Linux动态库的制作和使用
+
+- 动态库命名规则
+
+  - lib+库名字+.so
+  - libmycalc.so
+
+- 制作步骤
+
+  - 将源文件生成.o
+
+    ```
+    gcc *.c -I../include -fPIC -c
+    或者
+    gcc add.c minus.c multi.c divide.c -I../include -fPIC -c
+    ```
+
+  - 打包
+
+    ```
+    gcc *.o -shared -o libmycalc.so
+    ```
+
+- 库的使用
+
+  ```
+  gcc main.c -Iinclude lib/libmycalc.so -o myapp
+  ./myapp
+  
+  这种方式执行结果ok
+  ```
+
+  ```
+  gcc main.c -Iinclude -L./lib -lmycalc -o myapp
+  ./myapp
+  
+  结果报错,是由于这种libmycalc.so=>not found
+  ```
+
+- 库第二种使用方式的解决方案
+
+  - 第一种 把动态库移到系统的lib目录中,这种**极力不推荐**
+
+    ![image](images/8-1.png)
+
+  - 第二种在当前shell终端中配置LD_LIBRARY_PATH,重启终端将失效,这种方案可以测试使用
+
+    ![image](images/8-2.png)
+
+  - 第三种是在用户名目录下的.bashrc配置文件
+
+    ![image](images/8-3.png)
+
+  - 第四种在系统目录下的/etc/ld.so.conf配置,这种常用
+
+    ![image](images/8-4.png)
 
 
 
