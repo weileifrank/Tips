@@ -193,6 +193,9 @@ https://blog.csdn.net/xiongtiancheng/article/details/80036605
 
 2. 第二种对应的文件夹makefiledir2,makefile内容如下
 
+   - .PHONY:clean是表示clean是个伪目标
+   - `rm *.o app -f`是强制清除生成的.o文件和应用,不管有没有生成.o文件和应用
+
    ```
    app:main.o add.o minus.o multi.o divide.o
    	gcc *.o -o app
@@ -206,6 +209,9 @@ https://blog.csdn.net/xiongtiancheng/article/details/80036605
    	gcc src/multi.c -Iinclude -c
    divide.o:src/divide.c
    	gcc src/divide.c -Iinclude -c
+   .PHONY:clean
+   clean:
+   	rm *.o app -f
    ```
 
    ![image](images/10-2.png)
@@ -254,7 +260,28 @@ https://blog.csdn.net/xiongtiancheng/article/details/80036605
 
    ![image](images/10-5.png)
 
+6. 第五种对应的文件夹makefiledir6,makefile内容如下
 
+   ```
+   #obj=main.o add.o minus.o multi.o divide.o
+   target=app
+   src=$(wildcard ./*.c)
+   obj=$(patsubst ./%.c,./%.o,$(src))
+   CC = gcc
+   CPPFLAGS = -I
+   $(target):$(obj)
+   	$(CC) $(obj) -o $(target)
+   %.o:%.c
+   	$(CC) -c $< -o $@
+   #标识clean为伪目标,主要是解决本地有个叫clean的文件
+   .PHONY:clean 
+   clean:
+   	rm $(obj) $(target) -f  #-f是强制删除,不管生成文件与否
+   hello:
+   	echo "hello makefile"
+   ```
+
+   ![image](images/10-6.png)
 
 
 

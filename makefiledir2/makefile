@@ -10,3 +10,6 @@ multi.o:src/multi.c
 	gcc src/multi.c -Iinclude -c
 divide.o:src/divide.c
 	gcc src/divide.c -Iinclude -c
+.PHONY:clean
+clean:
+	rm *.o app -f
