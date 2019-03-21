@@ -176,12 +176,85 @@ https://blog.csdn.net/xiongtiancheng/article/details/80036605
   finish退出进入的函数
   until退出循环体,可简写成u
   continue继续运行程序,可简写c
-  
+  	
   ```
 
-  # Makefile制作
 
-  
+# Makefile制作
+
+1. 第一种对应的文件夹makefiledir1,makefile内容如下,注意第二行前面有个tab键
+
+   ```
+   app:main.c src/add.c src/minus.c src/multi.c src/divide.c
+   	gcc main.c src/*.c -Iinclude -o app
+   ```
+
+   ![image](images/10-1.png)
+
+2. 第二种对应的文件夹makefiledir2,makefile内容如下
+
+   ```
+   app:main.o add.o minus.o multi.o divide.o
+   	gcc *.o -o app
+   main.o:main.c
+   	gcc main.c -Iinclude -c
+   add.o:src/add.c
+   	gcc src/add.c -Iinclude -c
+   minus.o:src/minus.c
+   	gcc src/minus.c -Iinclude -c
+   multi.o:src/multi.c
+   	gcc src/multi.c -Iinclude -c
+   divide.o:src/divide.c
+   	gcc src/divide.c -Iinclude -c
+   ```
+
+   ![image](images/10-2.png)
+
+3. 第三种对应的文件夹makefiledir3,makefile内容如下
+
+   ```
+   obj=main.o add.o minus.o multi.o divide.o
+   target=app
+   $(target):$(obj)
+   	gcc $(obj) -o $(target)
+   main.o:main.c
+   	gcc -c $< -Iinclude -o $@
+   %.o:src/%.c
+   	gcc -c $< -Iinclude -o $@
+   ```
+
+   ![image](images/10-3.png)
+
+4. 第四种对应的文件夹makefiledir4,makefile内容如下
+
+   ```
+   obj=main.o add.o minus.o multi.o divide.o
+   target=app
+   $(target):$(obj)
+   	gcc $(obj) -o $(target)
+   main.o:main.c
+   	gcc $< -Iinclude -c
+   %.o:src/%.c
+   	gcc $< -Iinclude -c
+   ```
+
+   ![image](images/10-4.png)
+
+5. 第五种对应的文件夹makefiledir5,makefile内容如下
+
+   ```
+   obj=main.o add.o minus.o multi.o divide.o
+   target=app
+   $(target):$(obj)
+   	gcc $(obj) -o $(target)
+   %.o:%.c
+   	gcc -c $< -o $@
+   
+   ```
+
+   ![image](images/10-5.png)
+
+
 
 
 
