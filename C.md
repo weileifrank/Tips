@@ -130,6 +130,61 @@ https://blog.csdn.net/xiongtiancheng/article/details/80036605
 
 
 
+# GDB调试
+
+- 生成可调试的程序,注意调试之前需要安装gdb工具`sudo apt install gdb`,生成的代码步骤如下
+
+  ```
+  gcc main.c src/*.c -Iinclude -o app -g
+  ```
+
+- 启动gdb调试
+
+  ```
+  gdb app
+  ```
+
+- 前两步截图如下:
+
+  ![image](images/9.png)
+
+- 
+
+- 设置断点
+
+  ```
+  break设置断点,可简写成b
+  b 10  表示在当前程序的第10行
+  b func  表示在func函数入口处设置断点,比如在主函数中设置断点为`b main`
+  ```
+
+- 查看
+
+  ```
+  info  查看信息,可简写成i
+  i b查看断点信息
+  i display 查看display设置的自动显示的信息
+  ```
+
+- 调试代码的命令
+
+  ```
+  
+  run运行程序,可简写成r
+  next单步跟踪,可简写成n
+  step进入函数体,可简写成s
+  finish退出进入的函数
+  until退出循环体,可简写成u
+  continue继续运行程序,可简写c
+  
+  ```
+
+  # Makefile制作
+
+  
+
+
+
 # ffmpeg学习
 
 - 参考资料
