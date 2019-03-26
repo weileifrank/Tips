@@ -338,3 +338,10 @@
   adb shell monkey -p com.bupin.webversion 500
   
   ```
+
+# Android 学习的网址
+
+```
+https://blog.csdn.net/carson_ho?t=1
+```
+
