@@ -8,6 +8,9 @@ https://www.cnblogs.com/luoguixin/p/6684485.html
 
 qt安装如下:
 https://blog.csdn.net/xiongtiancheng/article/details/80036605
+
+gcc安装教程
+https://blog.csdn.net/u012450329/article/details/53813477
 ```
 
 # Linux易忘指令
