@@ -9,6 +9,9 @@ https://feixiao.github.io/archives/page/4/
 
 //tcp粘包处理
 https://www.codercto.com/a/41236.html
+
+//golang经典教程，可以看看
+https://chai2010.gitbooks.io/advanced-go-programming-book/content/ch1-basic/ch1-03-array-string-and-slice.html
 ```
 
 # goland中json处理
