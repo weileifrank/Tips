@@ -5,7 +5,8 @@ https://www.kancloud.cn/kancloud/the-way-to-go/72529
 
 https://chai2010.gitbooks.io/advanced-go-programming-book/content/
 
-https://feixiao.github.io/archives/page/4/
+//ffmpeg
+https://feixiao.github.io/archives/
 
 //tcp粘包处理
 https://www.codercto.com/a/41236.html
