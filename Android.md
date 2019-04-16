@@ -343,5 +343,8 @@
 
 ```
 https://blog.csdn.net/carson_ho?t=1
+
+java nio基本概念介绍
+http://wiki.jikexueyuan.com/project/java-nio-zh/java-nio-buffer.html
 ```
 
