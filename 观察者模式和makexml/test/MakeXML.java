@@ -46,7 +46,7 @@ public class MakeXML {
 			sb.append(WTemplate.replace("{0}", i + "").replace("{1}",
 					change(cellw * i) + ""));
 		}
-		sb.append(WTemplate.replace("{0}", "320").replace("{1}", w + ""));
+		sb.append(WTemplate.replace("{0}", ""+DW).replace("{1}", w + ""));
 		sb.append("</resources>");
 
 		StringBuffer sb2 = new StringBuffer();
@@ -57,7 +57,7 @@ public class MakeXML {
 			sb2.append(HTemplate.replace("{0}", i + "").replace("{1}",
 					change(cellh * i) + ""));
 		}
-		sb2.append(HTemplate.replace("{0}", "480").replace("{1}", h + ""));
+		sb2.append(HTemplate.replace("{0}", ""+DH).replace("{1}", h + ""));
 		sb2.append("</resources>");
 
 		String path = rootPath.replace("{0}", h + "").replace("{1}", w + "");

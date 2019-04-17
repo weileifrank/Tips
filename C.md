@@ -313,3 +313,41 @@ https://blog.csdn.net/u012450329/article/details/53813477
 
   
 
+# qt打包
+
+- 如下图生成选中后`ctrl+r`运行生成一个release包
+
+  ![image](images/11-1.png)
+
+  
+
+![image](images/11-2.png)
+
+![image](images/11-3.png)
+
+
+
+- 找到上图所在路径的`Demo01.exe"并拷贝到一个空文件中,这里以桌面的`release`文件夹为例,并进入到release文件夹下
+
+  ![image](images/12-1.png)
+
+  执行命令`windeployqt Demo01.exe`结果如下图
+
+  ![image](images/12-2.png)
+
+- 再到qt所在的环境变量路径,这里是`C:\Qt\Qt5.11.1\5.11.1\mingw53_32\bin`
+
+  ![image](images/12-3.png)
+
+- 拷贝上图中的`libgcc_s_dw2-1.dll`,`libstdc++-6.dll`,`libwinpthread-1.dll`
+
+  放到之前的`release`包下,**并替换所有的文件**
+
+  
+
+
+
+
+
+
+
