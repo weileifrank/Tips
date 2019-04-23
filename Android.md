@@ -83,6 +83,7 @@
   - https://www.cnblogs.com/zhaoyanjun/p/7603640.html
   - https://blog.csdn.net/zhaoyanjun6/article/list/1     这位博主的博客可以一看
   - https://blog.csdn.net/iamzgx/article/list/1?t=1
+  - https://www.jianshu.com/u/203b606b956c
 
 
 # ubuntu配置android开发环境
