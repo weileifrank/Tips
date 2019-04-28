@@ -85,9 +85,8 @@
   - https://blog.csdn.net/iamzgx/article/list/1?t=1
   - https://www.jianshu.com/u/203b606b956c
   - https://www.jianshu.com/p/1274c1f1b6a4
-  - https://www.jianshu.com/p/274c9d95cf76(buildconfig配置)
-  - https://www.jianshu.com/p/bfa3bd3d8ed3?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation(gradle全局配置)
-
+  - https://www.jianshu.com/p/274c9d95cf76
+  - https://www.jianshu.com/p/bfa3bd3d8ed3?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
 
 # ubuntu配置android开发环境
 
