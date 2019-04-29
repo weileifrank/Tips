@@ -87,6 +87,7 @@
   - https://www.jianshu.com/p/1274c1f1b6a4
   - https://www.jianshu.com/p/274c9d95cf76
   - https://www.jianshu.com/p/bfa3bd3d8ed3?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
+  - https://www.cnblogs.com/startkey/p/10042194.html
 
 # ubuntu配置android开发环境
 
