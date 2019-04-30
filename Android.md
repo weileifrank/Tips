@@ -85,9 +85,9 @@
   - https://blog.csdn.net/iamzgx/article/list/1?t=1
   - https://www.jianshu.com/u/203b606b956c
   - https://www.jianshu.com/p/1274c1f1b6a4
-  - https://www.jianshu.com/p/274c9d95cf76
+  - https://www.jianshu.com/p/274c9d95cf76    Gradle之BuildConfig自定义常量
   - https://www.jianshu.com/p/bfa3bd3d8ed3?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
-  - https://www.cnblogs.com/startkey/p/10042194.html
+  - https://www.cnblogs.com/startkey/p/10042194.html     系统app需要的配置
   - https://juejin.im/post/5be97882e51d4502df234ee4#heading-12
 
 # ubuntu配置android开发环境
