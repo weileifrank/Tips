@@ -86,6 +86,7 @@
   - https://www.jianshu.com/u/203b606b956c
   - https://www.jianshu.com/p/1274c1f1b6a4
   - https://www.jianshu.com/p/274c9d95cf76    Gradle之BuildConfig自定义常量
+  - http://wuxiaolong.me/2016/03/31/gradle4android2/    gradle配置的可以一看
   - https://www.jianshu.com/p/bfa3bd3d8ed3?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
   - https://www.cnblogs.com/startkey/p/10042194.html     系统app需要的配置
   - https://juejin.im/post/5be97882e51d4502df234ee4#heading-12
