@@ -353,5 +353,8 @@ https://blog.csdn.net/carson_ho?t=1
 
 java nio基本概念介绍
 http://wiki.jikexueyuan.com/project/java-nio-zh/java-nio-buffer.html
+
+//选择图片拍照裁剪  博客
+https://blog.csdn.net/alex01550/article/details/82115074
 ```
 
