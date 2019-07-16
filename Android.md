@@ -356,5 +356,17 @@ http://wiki.jikexueyuan.com/project/java-nio-zh/java-nio-buffer.html
 
 //选择图片拍照裁剪  博客
 https://blog.csdn.net/alex01550/article/details/82115074
+
+//itemdecoration的使用
+https://xiaxiayang.github.io/
+
+//dialog和dialogfragment全屏实现
+https://juejin.im/post/58de0a9a44d904006d04cead
+
+//constrainlayout高级使用说明
+https://www.jianshu.com/p/a74557359882
+
+//Android动态修改应用图标和名称
+https://juejin.im/post/5c36f2226fb9a049b7809170
 ```
 
