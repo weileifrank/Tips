@@ -368,5 +368,13 @@ https://www.jianshu.com/p/a74557359882
 
 //Android动态修改应用图标和名称
 https://juejin.im/post/5c36f2226fb9a049b7809170
+
+//demo合集
+https://github.com/alidili/Demos
+https://github.com/sdwfqin/AndroidQuick
+
+//android版本升级需要做的适配
+http://johnnyshieh.me/posts/android-target-sdk-version/
+http://www.appblog.cn/2018/10/08/Android%20P%20%E9%80%82%E9%85%8D%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/
 ```
 
