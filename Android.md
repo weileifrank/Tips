@@ -376,5 +376,10 @@ https://github.com/sdwfqin/AndroidQuick
 //android版本升级需要做的适配
 http://johnnyshieh.me/posts/android-target-sdk-version/
 http://www.appblog.cn/2018/10/08/Android%20P%20%E9%80%82%E9%85%8D%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/
+
+//软键盘遮挡问题
+https://blog.grapedge.top/2018/10/android-imb/
+https://juejin.im/entry/597ad8ac5188253df316f3c2
+https://www.diycode.cc/topics/383
 ```
 
