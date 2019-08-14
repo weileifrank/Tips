@@ -83,6 +83,7 @@
   - https://www.cnblogs.com/zhaoyanjun/p/7603640.html
   - https://blog.csdn.net/zhaoyanjun6/article/list/1     这位博主的博客可以一看
   - <https://www.jianshu.com/u/df76f81fe3ff   这位博主的简书可以一看
+  - https://blog.csdn.net/zhaoyanjun6/article/details/70313790   groovy语法
   - https://blog.csdn.net/iamzgx/article/list/1?t=1
   - https://www.jianshu.com/u/203b606b956c
   - https://www.jianshu.com/p/1274c1f1b6a4
@@ -91,6 +92,13 @@
   - https://www.jianshu.com/p/bfa3bd3d8ed3?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation
   - https://www.cnblogs.com/startkey/p/10042194.html     系统app需要的配置
   - https://juejin.im/post/5be97882e51d4502df234ee4#heading-12
+  - https://juejin.im/post/5b5f17976fb9a04fa775658d   组件化介绍
+  - [https://shymanzhu.com/2017/12/02/Android%20%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Lifecycle-Aware%20Components/](https://shymanzhu.com/2017/12/02/Android 架构组件（一）——Lifecycle-Aware Components/)           lifecycle介绍
+  - http://goluck.top/        个人博客网址
+  - http://blog.cgsdream.org/2018/10/28/android-arch-viewmodel/    
+  - [https://anriku.top/2018/08/08/Android%E4%B9%8BViewModel%E7%9A%84%E4%BD%BF%E7%94%A8/](https://anriku.top/2018/08/08/Android之ViewModel的使用/)    可以一看viewmodel
+  - https://www.loongwind.com/archives/280.html    Android Library发布到jcenter
+  - https://franksblog.top/2019/02/22/android-notes-arch/     jetpack可以一看
 
 # ubuntu配置android开发环境
 
