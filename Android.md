@@ -80,6 +80,8 @@
 - 参考链接
 
   - https://blog.csdn.net/zhaoyanjun6/article/details/77678577
+  - https://developer.android.com/jetpack/docs/guide             android官方架构使用指南
+  - https://www.jianshu.com/p/729375b932fe                  sunflower助解博客
   - https://www.cnblogs.com/zhaoyanjun/p/7603640.html
   - https://blog.csdn.net/zhaoyanjun6/article/list/1     这位博主的博客可以一看
   - <https://www.jianshu.com/u/df76f81fe3ff   这位博主的简书可以一看
@@ -95,11 +97,13 @@
   - https://juejin.im/post/5b5f17976fb9a04fa775658d   组件化介绍
   - [https://shymanzhu.com/2017/12/02/Android%20%E6%9E%B6%E6%9E%84%E7%BB%84%E4%BB%B6%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94Lifecycle-Aware%20Components/](https://shymanzhu.com/2017/12/02/Android 架构组件（一）——Lifecycle-Aware Components/)           lifecycle介绍
   - http://goluck.top/        个人博客网址
+  - https://anriku.top/       个人博客网址
   - http://blog.cgsdream.org/2018/10/28/android-arch-viewmodel/    
   - [https://anriku.top/2018/08/08/Android%E4%B9%8BViewModel%E7%9A%84%E4%BD%BF%E7%94%A8/](https://anriku.top/2018/08/08/Android之ViewModel的使用/)    可以一看viewmodel
   - https://www.loongwind.com/archives/280.html    Android Library发布到jcenter
   - https://franksblog.top/2019/02/22/android-notes-arch/     jetpack可以一看
   - [https://www.sunzn.com/2019/02/23/Android-Room-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/](https://www.sunzn.com/2019/02/23/Android-Room-使用指南/)   room使用详解
+  - https://blog.csdn.net/Dream2076/article/details/84305310   databindings自定义注解报错问题解决
 
 # ubuntu配置android开发环境
 
