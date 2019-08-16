@@ -99,6 +99,7 @@
   - [https://anriku.top/2018/08/08/Android%E4%B9%8BViewModel%E7%9A%84%E4%BD%BF%E7%94%A8/](https://anriku.top/2018/08/08/Android之ViewModel的使用/)    可以一看viewmodel
   - https://www.loongwind.com/archives/280.html    Android Library发布到jcenter
   - https://franksblog.top/2019/02/22/android-notes-arch/     jetpack可以一看
+  - [https://www.sunzn.com/2019/02/23/Android-Room-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/](https://www.sunzn.com/2019/02/23/Android-Room-使用指南/)   room使用详解
 
 # ubuntu配置android开发环境
 
