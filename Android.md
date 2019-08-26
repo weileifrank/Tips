@@ -101,9 +101,16 @@
   - http://blog.cgsdream.org/2018/10/28/android-arch-viewmodel/    
   - [https://anriku.top/2018/08/08/Android%E4%B9%8BViewModel%E7%9A%84%E4%BD%BF%E7%94%A8/](https://anriku.top/2018/08/08/Android之ViewModel的使用/)    可以一看viewmodel
   - https://www.loongwind.com/archives/280.html    Android Library发布到jcenter
+  - http://www.roshine.xyz/index.php/archives/1/       Android Library发布到jcenter
+  - https://zhuanlan.zhihu.com/p/39147094                    Android Library发布到jcenter
+  - https://blog.csdn.net/qq_32452623/article/details/79282605  Android Library发布到jcenter 可以一看
   - https://franksblog.top/2019/02/22/android-notes-arch/     jetpack可以一看
   - [https://www.sunzn.com/2019/02/23/Android-Room-%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/](https://www.sunzn.com/2019/02/23/Android-Room-使用指南/)   room使用详解
   - https://blog.csdn.net/Dream2076/article/details/84305310   databindings自定义注解报错问题解决
+  - https://juejin.im/post/5d500b1a6fb9a06b1417d5c9      Android tools使用
+  - https://juejin.im/post/5d56497f518825107c565d88       retrofit+livedata使用案例
+  - https://juejin.im/post/5be3d8cfe51d4549d83ac760         gson null字段转为空字符串文档
+  - https://www.jianshu.com/p/577165985576       bitmap xml使用说明
 
 # ubuntu配置android开发环境
 
@@ -358,6 +365,10 @@
   adb shell monkey -p com.bupin.webversion 500
   
   ```
+  
+- 参考链接:
+
+  - https://juejin.im/post/5d566d67e51d453b730b0f29          常用adb命令汇总
 
 # Android 学习的网址
 
