@@ -114,6 +114,7 @@
   - https://juejin.im/post/5be3d8cfe51d4549d83ac760         gson null字段转为空字符串文档
   - https://www.jianshu.com/p/577165985576       bitmap xml使用说明
   - https://juejin.im/post/5cb473e66fb9a068af37a6ce      协程和retrofit配合
+  - https://www.jianshu.com/p/092452f287db           rxjava retrofit retry实战
 
 # ubuntu配置android开发环境
 
