@@ -82,6 +82,8 @@
 - 参考链接
 
   - https://blog.csdn.net/zhaoyanjun6/article/details/77678577
+  -  https://blog.csdn.net/weijizhu1000/article/details/95752438   android自动化打包配置参考文档
+  - 
   - https://developer.android.com/jetpack/docs/guide             android官方架构使用指南
   - https://www.jianshu.com/p/729375b932fe                  sunflower助解博客
   - https://www.cnblogs.com/zhaoyanjun/p/7603640.html
