@@ -77,6 +77,9 @@
   gradlew app:uninstallRelease  //卸载手机上 app 的 release 包
   
   gradlew app:uninstallAll  //卸载手机上所有 app 的包
+  
+  查看依赖关系
+  ./gradlew :app:dependencies
   ```
 
 - 参考链接
