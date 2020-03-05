@@ -212,10 +212,11 @@
           如果我输入的参数为n，那么输出内容是 "您选择的套餐是： 套餐 n"
 
             ```
-       root@iZuf6ggrfujyixxwpqrglbZ:~/shdir# cat defaultdemo1.sh 
-       #!/bin/bash
-       a="$1"
-       echo "你选择的套餐是:套餐${a:-1}"
+          root@iZuf6ggrfujyixxwpqrglbZ:~/shdir# cat defaultdemo1.sh 
+          #!/bin/bash
+          a="$1"
+          echo "你选择的套餐是:套餐${a:-1}"
+            ```
        
        root@iZuf6ggrfujyixxwpqrglbZ:~/shdir# bash defaultdemo1.sh 
        你选择的套餐是:套餐1
@@ -274,6 +275,20 @@
   grep -rn "/bin/bash" *
   ```
 
+  - 查看某个进程是否active或者某个端口号是否被占用
+
+    ```java
+    //查看进程
+    ps -aux | grep mysql
+    ps -ef | grep mysql
+        
+    //查看端口
+    netstat -anp | grep 3306
+    
+    ```
+
+    
+
 - find和grep命令结合
 
   ```shell
@@ -290,4 +305,4 @@
   scp root@47.100.3.249:~/a.txt a.txt
   ```
 
-  
+- ssh-copy-id  多台机器可以实现免密登陆
