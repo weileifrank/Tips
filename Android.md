@@ -379,6 +379,14 @@
 
   - https://juejin.im/post/5d566d67e51d453b730b0f29          常用adb命令汇总
 
+# React Native-Android调试
+
+- 启动react native 服务`npm start`
+  - 摇一摇手机出现调试界面,选择`Start Remote JS Debugging`选项,然后chrome浏览器会弹出调试界面,比如`http://172.18.1.66:8081/debugger-ui/`
+- 把上面弹出的网址`http://172.18.1.66:8081/debugger-ui/`修改为`http://localhost:8081/debugger-ui/`,记得要通过localhost访问,不要通过具体的ip访问
+- 修改完网址后,如果手机仍然卡住白屏,请手动杀死手机进程app,重启打开一下
+
+
 # Android 学习的网址
 
 ```
