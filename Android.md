@@ -379,6 +379,29 @@
 
   - https://juejin.im/post/5d566d67e51d453b730b0f29          常用adb命令汇总
 
+### dex生成以及执行
+
+- 生成`Hello.class`文件,指定1.6主要是考虑用低版本的java版本,这样后面生成的dex容易跑通
+
+  ```shell
+  javac -target 1.6 -source 1.6 Hello.java
+  ```
+
+- 配置环境变量,找到电脑android安装目录中的buildtools===>`C:\Users\hasee\AppData\Local\Android\Sdk\build-tools`,该目录下的任意文件夹都有一个dx的二进制命令,配置成环境变量即可,下面命令得到`Hello.dex`
+
+  ```shell
+  dx --dex --output Hello.dex Hello.class
+  ```
+
+- 把生成好的dex文件拖到手机上,然后执行如下命令,`dalvikvm -cp dex文件路径  执行类名`
+
+  ```shell
+  adb shell
+  dalvikvm -cp /sdcard/Hello.dex Hello
+  ```
+
+  
+
 # React Native-Android调试
 
 - 启动react native 服务`npm start`
