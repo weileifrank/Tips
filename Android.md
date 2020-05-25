@@ -379,7 +379,7 @@
 
   - https://juejin.im/post/5d566d67e51d453b730b0f29          常用adb命令汇总
 
-### dex生成以及执行
+# dex生成以及执行
 
 - 生成`Hello.class`文件,指定1.6主要是考虑用低版本的java版本,这样后面生成的dex容易跑通
 
