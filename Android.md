@@ -400,6 +400,15 @@
   dalvikvm -cp /sdcard/Hello.dex Hello
   ```
 
+
+# jar命令的相关用法
+
+- 网址
+
+  ```shell
+  https://www.cnblogs.com/chenjfblog/p/10164967.html
+  ```
+
   
 
 # React Native-Android调试
