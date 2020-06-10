@@ -120,6 +120,7 @@
   - https://www.jianshu.com/p/577165985576       bitmap xml使用说明
   - https://juejin.im/post/5cb473e66fb9a068af37a6ce      协程和retrofit配合
   - https://www.jianshu.com/p/092452f287db           rxjava retrofit retry实战
+  - https://blog.csdn.net/a296777513/article/details/90665134   gradle transform介绍
 
 # ubuntu配置android开发环境
 
