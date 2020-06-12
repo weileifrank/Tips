@@ -13,6 +13,12 @@ https://www.codercto.com/a/41236.html
 
 //golang经典教程，可以看看
 https://chai2010.gitbooks.io/advanced-go-programming-book/content/ch1-basic/ch1-03-array-string-and-slice.html
+
+//go 环境变量基本概念介绍
+https://juejin.im/post/5cac9b73e51d456e8c1d3bfc
+
+//错误提示并解决
+https://studygolang.com/articles/2233
 ```
 
 # goland中json处理
