@@ -11,6 +11,10 @@ https://blog.csdn.net/xiongtiancheng/article/details/80036605
 
 gcc安装教程
 https://blog.csdn.net/u012450329/article/details/53813477
+
+
+//clion配置MinGW gcc开发环境,安装MinGW需要自己手动配置gcc环境变量
+https://www.jetbrains.com/help/clion/quick-tutorial-on-configuring-clion-on-windows.html
 ```
 
 # Linux易忘指令
