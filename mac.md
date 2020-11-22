@@ -6,4 +6,5 @@
 - 显示系统隐藏文件夹是shift+command+.
 - 打开个人文件夹shift+command+h
 - chrome刷新command+r
+- 连续选中多行并编辑快捷键ctl+g(对应win里面的alt+j)
 - 
