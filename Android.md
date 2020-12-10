@@ -80,6 +80,7 @@
   
   查看依赖关系
   ./gradlew :app:dependencies
+  gradlew -q :app:dependencies
   ```
 
 - 参考链接
