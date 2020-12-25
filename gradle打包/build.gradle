@@ -1,8 +1,13 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-android-extensions'
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'walle'
+//plugins {
+//    id 'com.android.application'
+//    id 'kotlin-android'
+//    id 'kotlin-android-extensions'
+////    id 'walle'
+//}
 def signPropertiesFile = rootProject.file("sign/keystore.properties")
 def properties = new Properties()
 properties.load(new FileInputStream(signPropertiesFile))
@@ -27,9 +32,6 @@ android {
             dirs 'libs'
         }
     }
-    dexOptions {
-        incremental true
-    }
     signingConfigs {
         config {
             storeFile new File(signPropertiesFile.parentFile, properties['keystore'])
@@ -41,38 +43,64 @@ android {
             storeFile file("../debug.keystore")
         }
     }
-    flavorDimensions "channel", "app"
+//    flavorDimensions "channel", "app"
+    flavorDimensions  "app"
     productFlavors {
-        watermelonclean {
+        watermelon {
             dimension "app"
             applicationId "com.xysl.watermelonclean"
             resValue "string", "app_name", "西瓜清理"
             buildConfigField "String", "XYSL_ID", '"1"'
-            buildConfigField "String", "XYSL_APP_VERSION", '"1.00"'
+            buildConfigField "String", "XYSL_APP_VERSION", "\"${defaultConfig.versionName}\""
+            buildConfigField "int", "XYSL_APP_VERSION_CODE", "${defaultConfig.versionCode}"
             buildConfigField "String", "KEY_UMENG", '"5faa22021c520d3073a4d23c"'
             buildConfigField "String", "WX_APP_ID", '"wx44e2f2b521adf614"'
             buildConfigField "String", "AD_APP_ID_CSJ", '"5118990"'
+            buildConfigField "String", "AD_APP_ID_GDT", '"1111239925"'
         }
         dashixiong {
             dimension "app"
             applicationId "com.xysl.dashixiong"
             resValue "string", "app_name", "大师兄清理"
             buildConfigField "String", "XYSL_ID", '"2"'
-            buildConfigField "String", "XYSL_APP_VERSION", '"1.00"'
-            buildConfigField "String", "KEY_UMENG", '"5faa22021c520d3073a4d23c"'
-            buildConfigField "String", "WX_APP_ID", '"wx44e2f2b521adf614"'
-            buildConfigField "String", "AD_APP_ID_CSJ", '"5118990"'
+            buildConfigField "String", "XYSL_APP_VERSION", "\"${defaultConfig.versionName}\""
+            buildConfigField "int", "XYSL_APP_VERSION_CODE", "${defaultConfig.versionCode}"
+            buildConfigField "String", "KEY_UMENG", '"5fd09f5abed37e4506c7b272"'
+            buildConfigField "String", "WX_APP_ID", '"wx4bb17babdf048893"'
+            buildConfigField "String", "AD_APP_ID_CSJ", '"5126402"'
+            buildConfigField "String", "AD_APP_ID_GDT", '"1111239925"'
         }
-        wandoujia2 {
-            dimension "channel"
-            manifestPlaceholders = [CHANNEL_NAME: "wandoujia2"]
-        }
+//        aiqingli {
+//            dimension "app"
+//            applicationId "com.xysl.aiqingli"
+//            resValue "string", "app_name", "全民爱清理"
+//            buildConfigField "String", "XYSL_ID", '"3"'
+//            buildConfigField "String", "XYSL_APP_VERSION", "\"${defaultConfig.versionName}\""
+//            buildConfigField "int", "XYSL_APP_VERSION_CODE", "${defaultConfig.versionCode}"
+//            buildConfigField "String", "KEY_UMENG", '"5faa22021c520d3073a4d23c"'
+//            buildConfigField "String", "WX_APP_ID", '"wx44e2f2b521adf614"'
+//            buildConfigField "String", "AD_APP_ID_CSJ", '"5118990"'
+//            buildConfigField "String", "AD_APP_ID_GDT", '"1111239925"'
+//        }
+//        toutiao1 {
+//            dimension "channel"
+//            manifestPlaceholders = [CHANNEL_NAME: "toutiao1"]
+//        }
     }
+    walle {
+        // 指定渠道包的输出路径
+        apkOutputFolder = new File("${project.buildDir}/outputs/channels");
+        // 定制渠道包的APK的文件名称
+        apkFileNameFormat = 'clean_${appName}-${channel}-${buildType}-v${versionName}-${buildTime}.apk';
+        // 渠道配置文件
+        channelFile = new File("${project.getProjectDir()}/channel")
+    }
+
 
     //自定义APK名称,多渠道打包
 //     批量打包(gradle 3.0.0 以上)
     android.applicationVariants.all { variant ->
-        variant.outputs.all {output->
+        variant.outputs.all { output ->
             variant.productFlavors.each { flavor ->
                 def date = new Date()
                 def formattedDate = date.format('yyyyMMdd')
@@ -80,25 +108,6 @@ android {
             }
         }
     }
-//    applicationVariants.all { variant ->
-//        variant.outputs.all { output ->
-//            variant.productFlavors.each { flavor ->
-//                def project = "clean"
-//                def separator = "_"
-//                def buildType = variant.buildType.name
-//                def versionName = variant.versionName
-//                def versionCode = variant.versionCode
-//                def date = new Date()
-//                def formattedDate = date.format('yyyyMMdd')
-//                def apkName = project + separator + "v" + versionName + separator + versionCode + separator + buildType + separator + flavor.name + ".apk"
-//                if (buildType == "release") {
-//                    apkName = project + separator + "v" + versionName + separator + versionCode + separator + buildType + separator + flavor.name + separator + formattedDate + ".apk"
-//                }
-//                output.outputFileName = apkName
-//            }
-//        }
-//    }
-
 
     buildTypes {
         release {
@@ -127,18 +136,24 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':common')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation(name: 'open_ad_sdk', ext: 'aar')
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'com.qq.e.union:tbs:4.310.1180'
+    implementation project(path: ':appupdateX')
+//    implementation (name:'ks_adsdk-2.2.4', ext:'aar')
+//    implementation 'androidx.appcompat:appcompat:1.2.0'
+//    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
+    implementation 'com.meituan.android.walle:library:1.1.7'
     annotationProcessor ext.libVersion.glideCompiler
 
     testImplementation ext.libVersion.junit
     androidTestImplementation ext.libVersion.runner
     androidTestImplementation ext.libVersion.espresso
 
-//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
 
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
+//    java -jar  walle-cli-all.jar batch -f  channel  ./app/build/outputs/apk/dashixiong/release/clean_dashixiong_dashixiong_release_v1.00_20201225.apk  apkdir
 
 }
+
