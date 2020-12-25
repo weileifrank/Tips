@@ -1,0 +1,170 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+def signPropertiesFile = rootProject.file("sign/keystore.properties")
+def properties = new Properties()
+properties.load(new FileInputStream(signPropertiesFile))
+def appPropertiesFile = rootProject.file("config/app.properties")
+def appProperties = new Properties()
+appProperties.load(new FileInputStream(appPropertiesFile))
+def ext = rootProject.ext
+android {
+    compileSdkVersion ext.buildVersion.compileSdkVersion
+    buildToolsVersion ext.buildVersion.buildToolsVersion
+    flavorDimensions "default"
+    defaultConfig {
+        minSdkVersion ext.buildVersion.minSdkVersion
+        targetSdkVersion ext.buildVersion.targetSdkVersion
+        versionCode Integer.parseInt(appProperties['versionCode'])
+        versionName appProperties['versionName']
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    signingConfigs {
+        config {
+            storeFile new File(signPropertiesFile.parentFile, properties['keystore'])
+            storePassword properties['storePassword']
+            keyAlias properties['keyAlias']
+            keyPassword properties['keyPassword']
+        }
+        debug {
+            storeFile file("../debug.keystore")
+        }
+    }
+//    flavorDimensions "channel", "app"
+    flavorDimensions  "app"
+    productFlavors {
+        watermelon {
+            dimension "app"
+            applicationId "com.xysl.watermelonclean"
+            resValue "string", "app_name", "西瓜清理"
+            buildConfigField "String", "XYSL_ID", '"1"'
+            buildConfigField "String", "XYSL_APP_VERSION", "\"${defaultConfig.versionName}\""
+            buildConfigField "int", "XYSL_APP_VERSION_CODE", "${defaultConfig.versionCode}"
+            buildConfigField "String", "KEY_UMENG", '"5faa22021c520d3073a4d23c"'
+            buildConfigField "String", "WX_APP_ID", '"wx44e2f2b521adf614"'
+            buildConfigField "String", "AD_APP_ID_CSJ", '"5118990"'
+            buildConfigField "String", "AD_APP_ID_GDT", '"1111239925"'
+        }
+        dashixiong {
+            dimension "app"
+            applicationId "com.xysl.dashixiong"
+            resValue "string", "app_name", "大师兄清理"
+            buildConfigField "String", "XYSL_ID", '"2"'
+            buildConfigField "String", "XYSL_APP_VERSION", "\"${defaultConfig.versionName}\""
+            buildConfigField "int", "XYSL_APP_VERSION_CODE", "${defaultConfig.versionCode}"
+            buildConfigField "String", "KEY_UMENG", '"5fd09f5abed37e4506c7b272"'
+            buildConfigField "String", "WX_APP_ID", '"wx4bb17babdf048893"'
+            buildConfigField "String", "AD_APP_ID_CSJ", '"5126402"'
+            buildConfigField "String", "AD_APP_ID_GDT", '"1111239925"'
+        }
+//        aiqingli {
+//            dimension "app"
+//            applicationId "com.xysl.aiqingli"
+//            resValue "string", "app_name", "全民爱清理"
+//            buildConfigField "String", "XYSL_ID", '"3"'
+//            buildConfigField "String", "XYSL_APP_VERSION", "\"${defaultConfig.versionName}\""
+//            buildConfigField "int", "XYSL_APP_VERSION_CODE", "${defaultConfig.versionCode}"
+//            buildConfigField "String", "KEY_UMENG", '"5faa22021c520d3073a4d23c"'
+//            buildConfigField "String", "WX_APP_ID", '"wx44e2f2b521adf614"'
+//            buildConfigField "String", "AD_APP_ID_CSJ", '"5118990"'
+//            buildConfigField "String", "AD_APP_ID_GDT", '"1111239925"'
+//        }
+//        toutiao1 {
+//            dimension "channel"
+//            manifestPlaceholders = [CHANNEL_NAME: "toutiao1"]
+//        }
+//        toutiao2 {
+//            dimension "channel"
+//            manifestPlaceholders = [CHANNEL_NAME: "toutiao2"]
+//        }
+//        toutiao3 {
+//            dimension "channel"
+//            manifestPlaceholders = [CHANNEL_NAME: "toutiao3"]
+//        }
+//        toutiao4 {
+//            dimension "channel"
+//            manifestPlaceholders = [CHANNEL_NAME: "toutiao4"]
+//        }
+//        toutiao5 {
+//            dimension "channel"
+//            manifestPlaceholders = [CHANNEL_NAME: "toutiao5"]
+//        }
+//        fenxiang1 {
+//            dimension "channel"
+//            manifestPlaceholders = [CHANNEL_NAME: "fenxiang1"]
+//        }
+//        cleantest {
+//            dimension "channel"
+//            manifestPlaceholders = [CHANNEL_NAME: "cleantest"]
+//        }
+//        wandoujia2 {
+//            dimension "channel"
+//            manifestPlaceholders = [CHANNEL_NAME: "wandoujia2"]
+//        }
+    }
+
+    //自定义APK名称,多渠道打包
+//     批量打包(gradle 3.0.0 以上)
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            variant.productFlavors.each { flavor ->
+                def date = new Date()
+                def formattedDate = date.format('yyyyMMdd')
+                outputFileName = "clean_${flavor.name}_${variant.productFlavors[0].name}_${variant.buildType.name}_v${defaultConfig.versionName}_${formattedDate}.apk"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true // 包优化
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':common')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation(name: 'open_ad_sdk', ext: 'aar')
+    implementation 'com.qq.e.union:tbs:4.310.1180'
+    implementation project(path: ':appupdateX')
+//    implementation (name:'ks_adsdk-2.2.4', ext:'aar')
+//    implementation 'androidx.appcompat:appcompat:1.2.0'
+//    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    annotationProcessor ext.libVersion.glideCompiler
+
+    testImplementation ext.libVersion.junit
+    androidTestImplementation ext.libVersion.runner
+    androidTestImplementation ext.libVersion.espresso
+
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
+
+
+}
