@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+def ext = rootProject.ext
+android {
+
+    compileSdkVersion ext.buildVersion.compileSdkVersion
+    buildToolsVersion ext.buildVersion.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion ext.buildVersion.minSdkVersion
+        targetSdkVersion ext.buildVersion.targetSdkVersion
+        vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    api ext.libVersion.appcompat
+    api ext.libVersion.constraintlayout
+    api ext.libVersion.utils
+    api ext.libVersion.circleimageview
+    api ext.libVersion.glide
+    annotationProcessor ext.libVersion.glideCompiler
+    api ext.libVersion.rxJava
+    api ext.libVersion.rxAndroid
+    api ext.libVersion.rxbinding
+    api ext.libVersion.retrofit
+    api ext.libVersion.retrofitConverterGson
+    api ext.libVersion.retrofitAdapterRxjava
+    api ext.libVersion.okhttpLog
+    api ext.libVersion.okio
+//    api ext.libVersion.scalars
+    api ext.libVersion.refresh
+    api ext.libVersion.refreshHeader
+    api ext.libVersion.refreshFooter
+    api ext.libVersion.eventBus
+    api ext.libVersion.multidex
+    api ext.libVersion.statusBar
+    api ext.libVersion.statusBarf
+    api ext.libVersion.statusBark
+    api ext.libVersion.material
+    api ext.libVersion.autosize
+    api ext.libVersion.recyclerAdapter
+    api ext.libVersion.annotations
+    api ext.libVersion.ktx
+    api ext.libVersion.ktstdlib
+    api ext.libVersion.legacy
+    api ext.libVersion.dialogs
+
+    api ext.libVersion.umsdkcore
+    api ext.libVersion.umsdkasms
+    api ext.libVersion.umsdkcrash
+    api ext.libVersion.wechatSdk
+    api ext.libVersion.agentweb
+//    api ext.libVersion.agentwebDownloader
+    api ext.libVersion.zxing_core
+    api ext.libVersion.zxing_javase
+    api ext.libVersion.realtimeblurview
+//    api ext.libVersion.gifdrawable
+
+//    api ext.libVersion.blurry
+}

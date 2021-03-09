@@ -1,0 +1,219 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'walle'
+    id 'com.huawei.agconnect'
+}
+def signPropertiesFile = rootProject.file("sign/keystore.properties")
+def properties = new Properties()
+properties.load(new FileInputStream(signPropertiesFile))
+def appPropertiesFile = rootProject.file("config/app.properties")
+def appProperties = new Properties()
+appProperties.load(new FileInputStream(appPropertiesFile))
+def ext = rootProject.ext
+android {
+    compileSdkVersion ext.buildVersion.compileSdkVersion
+    buildToolsVersion ext.buildVersion.buildToolsVersion
+    flavorDimensions "default"
+    defaultConfig {
+        minSdkVersion ext.buildVersion.minSdkVersion
+        targetSdkVersion ext.buildVersion.targetSdkVersion
+        versionCode Integer.parseInt(appProperties['versionCode'])
+        versionName appProperties['versionName']
+        vectorDrawables.useSupportLibrary = true
+        aaptOptions.cruncherEnabled = false
+        aaptOptions.useNewCruncher = false
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            //选择要添加的对应 cpu 类型的 .so 库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+    signingConfigs {
+        config {
+            storeFile new File(signPropertiesFile.parentFile, properties['keystore'])
+            storePassword properties['storePassword']
+            keyAlias properties['keyAlias']
+            keyPassword properties['keyPassword']
+        }
+        debug {
+            storeFile file("../debug.keystore")
+        }
+    }
+
+//    flavorDimensions "channel", "app"
+    flavorDimensions "app"
+    productFlavors {
+        watermelon {
+            dimension "app"
+            applicationId "com.xysl.watermelonclean"
+            resValue "string", "app_name", "西瓜清理"
+            buildConfigField "String", "XYSL_ID", '"1"'
+            buildConfigField "String", "XYSL_APP_VERSION", "\"${defaultConfig.versionName}\""
+            buildConfigField "int", "XYSL_APP_VERSION_CODE", "${defaultConfig.versionCode}"
+            buildConfigField "String", "KEY_UMENG", '"5faa22021c520d3073a4d23c"'
+            buildConfigField "String", "WX_APP_ID", '"wx44e2f2b521adf614"'
+            buildConfigField "String", "AD_APP_ID_CSJ", '"5118990"'
+            buildConfigField "String", "AD_APP_ID_GDT", '":1111408720"'
+            buildConfigField "String", "AD_BAIDU_NEWS_URL", '"https://cpu.baidu.com/1032/ac29f904?scid=76879"'
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME : applicationId,
+                    JPUSH_APPKEY  : "417633612941944a319cf7ef",//值来自开发者平台取得的AppKey
+                    JPUSH_CHANNEL : "default_developer",
+                    //xiaomi_config_start
+                    XIAOMI_APPID  : "MI-2882303761518942674",
+                    XIAOMI_APPKEY : "MI-5611894293674",
+                    //xiaomi_config_end
+                    //oppo_config_start
+                    OPPO_APPKEY   : "OP-db1c97dc8343409294f6fc0b61ee8c86",
+                    OPPO_APPID    : "OP-30457257",
+                    OPPO_APPSECRET: "OP-2c6688cd7974477995813e142a269222",
+                    //oppo_config_end
+                    //vivo_config_start
+                    VIVO_APPKEY   : "af8605267d4d08355257821e5d3cacee",
+                    VIVO_APPID    : "105460130",
+                    //vivo_config_end
+                    //meizu_config_start
+                    MEIZU_APPKEY  : "MZ-51050fab3827475c82f7507cc03ab130",
+                    MEIZU_APPID   : "MZ-138404",
+                    //meizu_config_end
+            ]
+        }
+        dashixiong {
+            dimension "app"
+            applicationId "com.xysl.dashixiong"
+            resValue "string", "app_name", "大师兄清理"
+            buildConfigField "String", "XYSL_ID", '"2"'
+            buildConfigField "String", "XYSL_APP_VERSION", "\"${defaultConfig.versionName}\""
+            buildConfigField "int", "XYSL_APP_VERSION_CODE", "${defaultConfig.versionCode}"
+            buildConfigField "String", "KEY_UMENG", '"5fd09f5abed37e4506c7b272"'
+            buildConfigField "String", "WX_APP_ID", '"wx4bb17babdf048893"'
+            buildConfigField "String", "AD_APP_ID_CSJ", '"5126402"'
+            buildConfigField "String", "AD_APP_ID_GDT", '"1111239925"'
+            buildConfigField "String", "AD_BAIDU_NEWS_URL", '"https://cpu.baidu.com/1032/ac29f904?scid=76879"'
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME: applicationId,
+                    JPUSH_APPKEY : "220a92c5926a7564b396ce75", //极光开发平台上注册的包名对应的appkey.
+                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                    //xiaomi_config_start
+                    XIAOMI_APPID  : "MI-2882303761518941850",
+                    XIAOMI_APPKEY : "MI-5131894145850",
+                    //xiaomi_config_end
+                    //oppo_config_start
+                    OPPO_APPKEY   : "OP-1a6626acfe9f42e7951d59596e64a9d8",
+                    OPPO_APPID    : "OP-30430951",
+                    OPPO_APPSECRET: "OP-df2f4b0209c54c7f929b76705124922f",
+                    //oppo_config_end
+                    //vivo_config_start
+                    VIVO_APPKEY   : "a32e1dfbd8bd315ab49219071a747fbf",
+                    VIVO_APPID    : "105459916",
+                    //vivo_config_end
+                    //meizu_config_start
+                    MEIZU_APPKEY  : "MZ-376e64b32aa94cf08f660d784730381a",
+                    MEIZU_APPID   : "MZ-138076",
+                    //meizu_config_end
+            ]
+        }
+//        cleantest {
+//            dimension "channel"
+//            manifestPlaceholders = [CHANNEL_NAME: "cleantest"]
+//        }
+
+    }
+    walle {
+        // 指定渠道包的输出路径
+        apkOutputFolder = new File("${project.buildDir}/outputs/channels");
+        // 定制渠道包的APK的文件名称
+//        apkFileNameFormat = 'clean-${flavorName}-${channel}-${buildType}-v${versionName}-${buildTime}.apk';
+        apkFileNameFormat = 'clean-${channel}.apk';
+        // 渠道配置文件
+//        channelFile = new File("${project.getRootDir()}/channel")
+        channelFile = new File("/wdzj/data/channel")
+    }
+    //自定义APK名称,多渠道打包
+//     批量打包(gradle 3.0.0 以上)
+    android.applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            variant.productFlavors.each { flavor ->
+                def date = new Date()
+                def formattedDate = date.format('yyyyMMdd')
+//                outputFileName = "clean_${flavor.name}_${variant.productFlavors[0].name}_${variant.buildType.name}_v${defaultConfig.versionName}_${formattedDate}.apk"
+                outputFileName = "clean_${flavor.name}_${variant.buildType.name}_v${defaultConfig.versionName}.apk"
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            zipAlignEnabled true // 包优化
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':common')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation(name: 'open_ad_sdk', ext: 'aar')
+    implementation 'com.qq.e.union:tbs:4.330.1200'
+    implementation project(path: ':appupdateX')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+//    implementation (name:'ks_adsdk-2.2.4', ext:'aar')
+//    implementation 'androidx.appcompat:appcompat:1.2.0'
+//    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+
+    annotationProcessor ext.libVersion.glideCompiler
+
+    testImplementation ext.libVersion.junit
+    androidTestImplementation ext.libVersion.runner
+    androidTestImplementation ext.libVersion.espresso
+
+    //推送打包相关
+    implementation 'com.meituan.android.walle:library:1.1.7'
+    implementation 'cn.jiguang.sdk:jpush:3.8.5'  // 此处以JPush 3.8.5 版本为例。
+    implementation 'cn.jiguang.sdk:jcore:2.5.5'  // 此处以JCore 2.5.5 版本为例。
+    implementation 'com.huawei.hms:push:4.0.2.300'
+    //引入极光-华为插件，如果采用此配置，无需拷贝jpush-android-plugin-huawei-v3.x.x.jar文件，也无需配置cn.jpush.android.service.PluginHuaweiPlatformsService组件
+    implementation 'cn.jiguang.sdk.plugin:huawei:3.9.0'
+    implementation 'cn.jiguang.sdk.plugin:xiaomi:3.9.0'
+    implementation 'cn.jiguang.sdk.plugin:meizu:3.9.0'
+    implementation 'cn.jiguang.sdk.plugin:oppo:3.9.0'
+    implementation 'cn.jiguang.sdk.plugin:vivo:3.9.0'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
+
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
+
+
+}
