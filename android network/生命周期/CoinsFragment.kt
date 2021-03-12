@@ -17,8 +17,8 @@ import com.xysl.foot.view.base.binding
 
 class CoinsFragment : Fragment(R.layout.fragment_coins) {
 
-//    val bindings by binding(FragmentCoinsBinding::bind)
-    val bindings by binding<FragmentCoinsBinding>()
+    val bindings by binding(FragmentCoinsBinding::bind)
+//    val bindings by binding<FragmentCoinsBinding>()
     private lateinit var coinsViewModel: CoinsViewModel
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -56,6 +56,7 @@ class CoinsFragment : Fragment(R.layout.fragment_coins) {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        logD("CoinsFragment【onCreateView】")
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
