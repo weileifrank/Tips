@@ -11,38 +11,38 @@ import com.xysl.common.utils.logD
 
 open class BaseLifecycleObserver:LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    open fun onCreate() {
-        logD("Observer【onCreate】")
+    open fun onCreate(owner:LifecycleOwner) {
+        logD("Observer---【onCreate】---owner=${owner::class.java.name}")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    open fun onStart() {
-        logD("Observer【onStart】")
+    open fun onStart(owner:LifecycleOwner) {
+        logD("Observer---【onStart】---owner=${owner::class.java.name}")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    open fun onResume(source: LifecycleOwner) {
-        logD("Observer【onResume】")
+    open fun onResume(owner: LifecycleOwner) {
+        logD("Observer---【onResume】---owner=${owner::class.java.name}")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    open fun onPause() {
-        logD("Observer【onPause】")
+    open fun onPause(owner:LifecycleOwner) {
+        logD("Observer---【onPause】---owner=${owner::class.java.name}")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    open fun onStop() {
-        logD("Observer【onStop】")
+    open fun onStop(owner:LifecycleOwner) {
+        logD("Observer---【onStop】---owner=${owner::class.java.name}")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    open fun onDestroy() {
-        logD("Observer【onDestroy】")
+    open fun onDestroy(owner:LifecycleOwner) {
+        logD("Observer---【onDestroy】---owner=${owner::class.java.name}")
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
     open fun onAny(source: LifecycleOwner?, event: Lifecycle.Event) {
-//        logD("Observer onAny：" )
+//        logD("Observer--- onAny：" )
     }
 
 }
