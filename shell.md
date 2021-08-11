@@ -306,3 +306,13 @@
   ```
 
 - ssh-copy-id  多台机器可以实现免密登陆
+
+
+
+# 快捷键
+
+```shell
+shell常用快捷键
+https://www.cnblogs.com/ziwuxian/p/12591954.html
+```
+
