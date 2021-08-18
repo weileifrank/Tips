@@ -1,0 +1,9 @@
+V2 apk签名
+apksigner sign --ks /Users/weilei/Desktop/legu/keystore.jks --ks-key-alias citypackage --out /Users/weilei/Desktop/legu/legu_sign.apk /Users/weilei/Desktop/legu/legu_unsign.apk
+
+
+写入渠道号
+java -jar walle-cli-all.jar put -c vivo legu_sign.apk
+
+显示渠道号
+java -jar walle-cli-all.jar show legu_sign_vivo.apk
