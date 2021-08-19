@@ -8,6 +8,7 @@
 - chrome刷新command+r
 - 连续选中多行并编辑快捷键ctl+g(对应win里面的alt+j)
 - 关闭应用的快捷键:cmd+q(可以对比cmd+w)
+- idea 全局查找快捷键 ctrl+shift+f
 
 
 
