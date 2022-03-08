@@ -375,6 +375,9 @@
   //对某个应用做monkey测试
   adb shell monkey -p com.bupin.webversion 500
   
+  //查询本机正则匹配的包名
+   adb shell pm list packages | grep hiscene
+  
   ```
   
 - 参考链接:
@@ -427,6 +430,7 @@
 ```
 //安卓开发资料大全 可以看看
 https://blog.yorek.xyz/android/other/recyclerview-item-docoration/
+https://ljd1996.github.io/
 
 https://blog.csdn.net/carson_ho?t=1
 
@@ -461,18 +465,4 @@ https://blog.grapedge.top/2018/10/android-imb/
 https://juejin.im/entry/597ad8ac5188253df316f3c2
 https://www.diycode.cc/topics/383
 ```
-
-# Android开发常见问题
-
-- 生成的**Release**包,安装到手机上启动直接崩溃,是不是忘记配置了`代码混淆文件`
-
-- kotlin1.5.20 集成hilt,room,报如下错误,有可能本地编译的jdk不是11
-
-  ```shell
-  Execution failed for task ':app:kaptDebugKotlin'.
-  > A failure occurred while executing org.jetbrains.kotlin.gradle.internal.KaptWithoutKotlincTask$KaptExecutionWorkAction
-     > java.lang.reflect.InvocationTargetException (no error message)
-  ```
-
-- 集成hilt无法生成相关对象实例,是不是activity或者fragment忘记添加AndroidEntryPoint注解
 

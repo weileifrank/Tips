@@ -21,13 +21,16 @@
 知乎网址:https://zhuanlan.zhihu.com/p/71690155
 mac ctrl+g    win alt+j  选中相同单词
 Option + 鼠标左键 + 移动   列编辑
-
+cmd+1 窗口大小切换
 cmd + shift + u 大小写转换
 cmd + n 构造方法，getter,setter方法
 cmd + y 查看方法参数
 option+command+L：格式化代码
 Command+P  显示参数
 Command+Shift+Enter 完成语句
+
+Control+Shift+Space/Command+Shift+Space 类或者接口补全(keymap 输入completion可以看到)
+cmd+f12 查找类中的所有方法
 
 shift+enter 开始新行
 option+cmd+enter 开始新行(上一行)
